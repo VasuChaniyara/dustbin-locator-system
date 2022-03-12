@@ -1,0 +1,80 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Map.master.cs" Inherits="GettingStarted.Map" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script type="text/javascript" src="Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="Scripts/ol-debug.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <link href="~/Scripts/ol.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap-theme.min.css" rel="stylesheet" />
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <asp:Image runat="server" ID="imgLogo" ImageUrl="~/Image/IMG-20200120-WA0001.jpg" Height="75px" Width="75px" />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div> 
+    
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         
+      <ul class="nav navbar-nav"><br />
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="#"><b>Dustbin Locator</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <asp:HyperLink ID="hlMap" CssClass="nav-link" runat="server" NavigateUrl="~/Default.aspx">Map</asp:HyperLink>
+                    </li>
+                    <li class="nav-item">
+                        <asp:HyperLink ID="hlReport" CssClass="nav-link" runat="server" NavigateUrl="~/Admin_Panel/Report/Report.aspx">Report</asp:HyperLink>
+                    </li>
+                    <li class="nav-item">
+                        <asp:HyperLink ID="hlRequest" CssClass="nav-link" runat="server" NavigateUrl="~/Admin_Panel/Request/Request.aspx">Request</asp:HyperLink>
+                    </li>
+                    <li class="nav-item">
+                        <asp:HyperLink ID="hlLocation" CssClass="nav-link" runat="server" NavigateUrl="~/Admin_Panel/Location/Location.aspx" Visible="false">Location</asp:HyperLink>
+                    </li>
+                    <li class="nav-item">
+                        <asp:HyperLink ID="hlFeedback" CssClass="nav-link" runat="server" NavigateUrl="~/Admin_Panel/Feedback/Feedback.aspx" Visible="false">Feedback</asp:HyperLink>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="nav navbar-nav navbar-right" style="padding-top:14px">
+                        <asp:HyperLink ID="hlLogin" CssClass="btn btn-info"  runat="server" NavigateUrl="~/Admin_Panel/Access/Login.aspx" Font-Bold="true" style="font-size:large"><span class="glyphicon glyphicon-log-in" ></span>&nbsp;&nbsp;Login</asp:HyperLink>
+                    </li>
+                    <li class="nav navbar-nav navbar-right" style="padding-top:14px">
+                        <asp:LinkButton ID="hlLogout" CssClass="btn btn-danger" runat="server" OnClick="hlLogout_Click" Font-Bold="true" style="font-size:large"  Visible="false"><span class="glyphicon glyphicon-log-out" ></span>&nbsp;&nbsp;Logout</asp:LinkButton>
+                    </li>
+                </ul>
+            </div>
+      </div>
+        </nav>
+        <br />
+        <asp:Label runat="server" ID="lblUserName"></asp:Label>
+        <br />
+        <br />
+        
+
+        <div>
+            <asp:ContentPlaceHolder ID="cphContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
